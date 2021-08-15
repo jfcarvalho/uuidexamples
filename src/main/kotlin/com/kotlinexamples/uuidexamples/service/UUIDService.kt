@@ -5,4 +5,5 @@ import org.springframework.stereotype.Service;
 
 public interface UUIDService {
     fun save()
+    fun get()
 }

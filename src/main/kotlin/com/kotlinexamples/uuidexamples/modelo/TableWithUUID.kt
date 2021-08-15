@@ -3,17 +3,16 @@ package com.kotlinexamples.uuidexamples.modelo
 import lombok.Data
 import lombok.Getter
 import lombok.Setter
+import java.io.Serializable
 import java.util.*
-import javax.persistence.Column
-import javax.persistence.Embeddable
-import javax.persistence.Embedded
-import javax.persistence.Entity
+import javax.persistence.*
 
 @Data
 @Entity
+@Table(name = "table_with_uuid")
 class TableWithUUID {
 
-    @Embedded
+    @EmbeddedId
     var uuidId = UuidId(UUID(0L,0L),UUID(0L,0L),UUID(0L,0L))
     @Column(name = "field_4")
     var uuid4 = UUID(0L,0L)
@@ -24,7 +23,7 @@ class TableWithUUID {
 }
 
 @Embeddable
-class UuidId {
+class UuidId: Serializable {
     @Column(name = "field_1")
     var uuid1 = UUID(0L,0L)
     @Column(name = "field_2")

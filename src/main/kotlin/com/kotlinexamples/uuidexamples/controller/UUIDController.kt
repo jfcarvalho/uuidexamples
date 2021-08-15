@@ -16,9 +16,13 @@ class UUIDController {
     lateinit var uuidService: UUIDService
 
     @PostMapping
-    fun test() {
+    fun saveUUID() {
         return uuidService.save()
     }
 
+    @GetMapping
+    fun getUUID() {
+        return uuidService.get()
+    }
 
 }

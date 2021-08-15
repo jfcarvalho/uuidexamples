@@ -28,5 +28,16 @@ class UUIDServiceImpl : UUIDService {
         )
     }
 
+    override fun get() {
+       val entity = tableWithUUIDRepository.findById(
+            UuidId(
+                UUID(0L, 555),
+                UUID(0L, 666),
+                UUID(0L, 777),
+            )
+        )
+        System.out.println(entity)
+    }
+
 
 }
