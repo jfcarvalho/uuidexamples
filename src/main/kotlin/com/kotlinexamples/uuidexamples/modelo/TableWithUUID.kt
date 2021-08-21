@@ -13,25 +13,31 @@ import javax.persistence.*
 class TableWithUUID {
 
     @EmbeddedId
-    var uuidId = UuidId(UUID(0L,0L),UUID(0L,0L),UUID(0L,0L))
+     var uuidcId : UuidId? = null
     @Column(name = "field_4")
-    var uuid4 = UUID(0L,0L)
+     var uuidc4 : UUID? = null
     @Column(name = "field_5")
-    var uuid5 : String = ""
+     var uuidc5 : String? = null
 
-    constructor(uuidId: UuidId, uuid4: UUID, uuid5: String)
+    constructor(uuidId: UuidId, uuid4: UUID, uuid5: String) {
+        uuidcId = uuidId
+        uuidc4 = uuid4
+        uuidc5 = uuid5
+    }
 }
 
 @Embeddable
 class UuidId: Serializable {
     @Column(name = "field_1")
-    var uuid1 = UUID(0L,0L)
+    var uuidc1 :  UUID? = null
     @Column(name = "field_2")
-    var uuid2 = UUID(0L,0L)
+    var uuidc2 : UUID? = null
     @Column(name = "field_3")
-    var uuid3 = UUID(0L, 0L)
+    var uuidc3 : UUID? = null
 
     constructor(uuid1: UUID, uuid2: UUID, uuid3: UUID) {
-
+        uuidc1 = uuid1
+        uuidc2 = uuid2
+        uuidc3 = uuid3
     }
 }
